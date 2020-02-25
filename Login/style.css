@@ -1,0 +1,48 @@
+#body_bg
+{ 
+background-color:#9F81F7; 
+}
+
+.login-form
+{ 
+background-color: #A9D0F5; 
+border: 3px solid #eee0ee; 
+padding:9px 9px;
+ width:300px; 
+ border-radius:5px; 
+ text-align: center;
+ margin-top: 10%;
+ 
+
+}
+
+.forgot-form
+{
+	background:#A9D0F5; 
+	border: 3px solid #eee0ee; 
+	padding:9px 9px;
+ 	width:300px; 
+ 	border-radius:5px;
+ 	text-align: center;
+ 	margin-top: 10%;
+ 	
+}
+#in{
+	width: 100px;
+}
+
+.register-form
+{
+	background:#A9D0F5; 
+	border: 3px solid #eee0ee; 
+	padding:9px 9px;
+ 	width:300px; 
+ 	border-radius:5px;
+ 	text-align: center;
+ 	margin-top: 10%;
+ 	;
+}
+.error
+{
+	margin-left: 50%;
+}
