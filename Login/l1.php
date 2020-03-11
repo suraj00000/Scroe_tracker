@@ -57,7 +57,7 @@
                                 echo "<center>valid data</center>";
                                 $_SESSION["id"] = $_POST['id'];
                                 $_SESSION["pass"] = $_POST['pass'];
-                                header("Location: Home.php");
+                                header("Location: home.php");
                             }
                             else
                             {

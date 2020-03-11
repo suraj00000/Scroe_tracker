@@ -5,59 +5,70 @@
 <title> Scoring Portal </title></head>
 <body>
 
-	
+	<div align="center">
 	<header>SCORE TRACKER</header>
 	<form method="POST" action="" >
 		Teams:
-		<div  class="d1">
+		<div  class="d2">
 		Host team:
 		<input type="text" id="text1" name="t1"><br>
 		Visitor team:
 		<input type="text" id="text2" name="t2"><br>
 		</div><br>
 		<div class ="d2">
-		Spin the toss? 
-		<input type="submit" name="check" value="Yes">
-		<input type="submit" name="check1" value="No">
-		<br>
+		Spin the toss?
+		<input type="submit" name="check" value="Yes"> 
+		<input type="submit" name="check1"  value="No">  
+<!-- 		<input type="radio" name="check" id="Yes" value="Yes"> Yes
+		<input type="radio" name="check" id="No" value="No"> No
+use this when radio button can be used further
+ -->		<br>
 		</div>
+		<br>
 
 		
 	<?php
+
+
 		$t1;
 		$t2;
 		if(isset($_POST['check']))
+		//if($_POST['check'].getElementById("Yes").value =="True") // if radio button set to true enters loop
 		{
 			$t1=$_POST['t1'];
 			$t2=$_POST['t2'];
 			$toss=check();
+			//$_POST['toss']=$toss;
 			?>
 			<br>
 			<?php if($toss)
 			{?>
+
 				Toss Won By?
-				<div class="d3">
+				<div class="d2">
 				<input type="text" name="a" value="<?php echo $t1; ?>" ></div><br> 
-				Opted?<br>
-				<div class="d4">
+				<!-- Opted?<br>
+				<div class="d2">
 				<input type="radio" name="opted" > Bat
 				<input type="radio" name="opted" > Bowl
-				</div>
+				</div> -->
+				
 			<?php
 			}
 			else
 			{?>
-				<div class="d5">
+				<div class="d2">
 					Toss Won By?
 				<input type="text" name="a" value="<?php echo $t2; ?>" ></div><br> 
-				Opted?<br>
+				<!-- Opted?<br>
 				<div class="d6">
 				<input type="radio" name="opted" > Bat
 				<input type="radio" name="opted" > Bowl
-				</div>
-			<?php
+				</div> -->
+			<?php	
 			}
 		}
+
 		else
 		{
 
@@ -66,20 +77,73 @@
 				$t1=$_POST['t1'];
 				$t2=$_POST['t2'];
 			?>
-			Toss won by?<br>
-			<div class="d7">
+			
+			<div class="d2">
+				Toss won by?<br>
 			<input type="radio" name="toss"><?php echo $t1;?>  
 			<input type="radio" name="toss"><?php echo $t2;?>
-			</div><br>
-			Opted?<br>
-			<div class="d8">
-			<input type="radio" name="opted" > Bat
-			<input type="radio" name="opted" > Bowl
-			</div>
+			</div><br><br>
+			
 	<?php }
-		} 
-	?>
+		} ?>
+			
+			<div class="d2">
+				Opted?
+			<input type="radio" name="opted" value="Bat"> Bat
+			<input type="radio" name="opted" value="Bowl"> Bowl
+			</div>
+			<br>
+		
+			<div class="d2">
+				Overs?
+			<input type="text" name="overs" > <br> </div> <br>
 
+			<div style="padding-right: 270px">
+			Click below to change the rules <br>
+			<a href="rules.php"> Advanced Settings </a> <br><br>
+			</div>
+
+		<div class="sub">
+			<input type ="submit" name="submit" value="Start Match">
+		</div>
+	</div>
+	</form>
+	<?php
+
+	if(isset($_POST['submit']))
+	{
+		//first check if all the values are entered and if all the values are entered thn redirect ot next page
+		$host="localhost";
+		$user="root";
+		$pass="";
+		$db="score_tracker";
+		$cnn=mysqli_connect($host,$user,$pass,$db);
+		$over=$_POST['overs'];
+		$a=$_POST['a'];
+		$op=$_POST['opted'];
+		if ($a)//error:endefined variable bool
+		{
+			if(isset($op) and $op=="Bat")
+			{
+				$abc="Bat";
+			}
+			else
+			{
+				$abc="bowl";
+			}
+
+			$qry="insert into rules(overs,toss,opted) values($over,'$a',$abc)"; //add opted field in database.... error:how to redirect a page without refreshing its values
+			$res=mysqli_query($cnn,$qry);
+			if($res)
+			{
+				echo "error";
+			}
+		}
+		
+		//header("Location:select_player.php");
+		
+	}
+	?>
 </body>
 </html>
 <?php

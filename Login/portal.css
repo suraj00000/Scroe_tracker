@@ -1,0 +1,61 @@
+.div1
+{
+	background-color:gray;
+	margin:auto;
+	width: 60%;
+	padding: 10px;
+	border: 3px solid green;
+}
+.d1
+{
+
+	background-color: skyblue;
+	border-radius: 250px;
+  	padding: 20px; 
+  	width: 500px;
+}
+#button
+{
+		display: inline-block;
+		padding:10px 30px;
+		width: 20%;
+	 	font-size: 15px;
+	 	cursor:pointer;
+	 	font-weight: bold;
+	 	text-decoration: none;
+	 	color:white;
+	 	background-color: blue;
+	 	border:none;
+	 	border-radius: 50px;
+	 	box-shadow: 0 5px #000674;
+}
+.button1
+{
+		display: inline-block;
+		padding:10px 30px;
+		width: 20%;
+	 	font-size: 15px;
+	 	cursor:pointer;
+	 	font-weight: bold;
+	 	text-decoration: none;
+	 	color:white;
+	 	background-color: blue;
+	 	border:none;
+	 	border-radius: 50px;
+	 	box-shadow: 0 5px #000674;
+
+}
+.button2
+{
+		display: inline-block;
+		padding:10px 30px;
+	 	font-size: 15px;
+	 	cursor:pointer;
+	 	font-weight: bold;
+	 	text-decoration: none;
+	 	color:white;
+	 	background-color: blue;
+	 	border:none;
+	 	border-radius: 50px;
+	 	box-shadow: 0 5px #000674;
+}
